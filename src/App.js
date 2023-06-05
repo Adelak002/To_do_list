@@ -47,13 +47,21 @@ const completeTask = (taskid) => {
    
   
 }
+
+const enterPress = (e) =>{
+  // console.log(e);
+  if (e.code === "Enter"){
+    addTask();
+  }
+}
+
   return (
    <div className='create'>
      <div className="App">
       <div className='Add_task'>
         <div className='title'>TO DO LIST </div>
-        <input className='input' onChange={handleChange} placeholder='Enter Task'/>
-        <button className='but' onClick={ addTask}>Add Task </button>
+        <input className='input' onChange={handleChange} placeholder='Enter Task' onKeyUp={(e) => enterPress(e)}/>
+        <button className='but' onClick={ addTask} >Add Task </button>
       </div>
       <div className='list_task'>
      {todoList.map((task)=>{
